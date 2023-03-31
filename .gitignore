@@ -1,0 +1,10 @@
+# IDEs
+.vscode
+
+# Dependency directories
+node_modules/
+
+# playwright files
+/test-results/
+/playwright-report/
+/playwright/.cache/
