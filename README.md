@@ -2,7 +2,7 @@
 
 # BDD base project: Playwright + Typescript
 
-Basic example of Playwright with Typescript on Chrome and Safari (in parallel)
+Basic example of Playwright with Typescript on Chrome and Safari (in parallel).
 
 # Table of contents
 
@@ -42,10 +42,10 @@ npm test
 
 ```bash
 Running 6 tests using 2 workers
-  Slow test file: [webkit] › duckduckgo.spec.ts (34.2s)
-  Slow test file: [chromium] › duckduckgo.spec.ts (34.2s)
+  Slow test file: [webkit] › duckduckgo.spec.ts (18.8s)
+  Slow test file: [chromium] › duckduckgo.spec.ts (15.3s)
   Consider splitting slow test files to speed up parallel execution
-  6 passed (34.9s)
+  6 passed (19.4s)
 ```
 
 **HTML report**:
