@@ -28,7 +28,7 @@ test.describe('Search engine on the Duckduckgo website @search', () => {
             await duckduckGoPage.typeSearchInput(searchTest)
             await duckduckGoPage.search()
 
-            const results = await duckduckGoPage.resultContain(expectedResult)
+            await duckduckGoPage.resultContain(expectedResult)
         })
     }
 })
