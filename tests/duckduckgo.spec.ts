@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
-import DuckduckgoPage from './src/pages/DuckduckgoPage'
+import HomePage from './src/pages/duckduckgo/HomePage'
+import SearchPage from './src/pages/duckduckgo/SearchPage'
 
 test.describe('Search engine on the Duckduckgo website @search', () => {
     const testCases = [
@@ -19,16 +20,16 @@ test.describe('Search engine on the Duckduckgo website @search', () => {
 
     for (const { searchTest, expectedResult } of testCases) {
         test(`Using the search input with the text "${searchTest}" @smoke`, async ({ page }) => {
-            const duckduckGoPage = new DuckduckgoPage(page)
+            const homePage = new HomePage(page)
+            await homePage.open()
 
-            await duckduckGoPage.goto()
+            await expect(page).toHaveTitle(/DuckDuckGo/)
 
-            await expect(page).toHaveTitle(DuckduckgoPage.title)
+            await homePage.typeSearchInput(searchTest)
+            await homePage.search()
 
-            await duckduckGoPage.typeSearchInput(searchTest)
-            await duckduckGoPage.search()
-
-            await duckduckGoPage.resultContain(expectedResult)
+            const searchPage = new SearchPage(page)
+            await searchPage.resultContain(expectedResult)
         })
     }
 })
